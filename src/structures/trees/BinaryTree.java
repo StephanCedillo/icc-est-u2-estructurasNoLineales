@@ -37,7 +37,7 @@ public class BinaryTree<T extends Comparable<T>> {
             peso +=1;
             return nodeInsertar;
         }
-        if (nodeActual.getValue().compareTo(nodeInsertar.getValue())>0) {
+        if (nodeActual.getValue().compareTo(nodeInsertar.getValue())<0) {
             nodeActual.setRight(addRecursivo(nodeActual.getRight(), nodeInsertar));
         } else {
             nodeActual.setLeft(addRecursivo(nodeActual.getLeft(), nodeInsertar));

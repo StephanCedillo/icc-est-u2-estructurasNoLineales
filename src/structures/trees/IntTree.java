@@ -92,9 +92,9 @@ public class IntTree {
         if (actual == null) {
             return;
         }
-        preOrderRecursivo(actual.getLeft());
+        inOrderRecursivo(actual.getLeft());
         System.out.println(actual);
-        preOrderRecursivo(actual.getRight());
+        inOrderRecursivo(actual.getRight());
 
     }
 

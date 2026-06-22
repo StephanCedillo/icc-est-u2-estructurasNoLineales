@@ -2,23 +2,41 @@ import java.util.function.IntBinaryOperator;
 
 import models.Persona;
 import structures.node.Node;
-import structures.trees.BinaryTree;
-import structures.trees.IntTree;
+
+import structures.trees.*;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
-        runIntTree();
-        System.out.println();
-        runBinaryTree();
+        //runIntTree();
+        //System.out.println();
+       //runBinaryTree();
+        runEjercicios();
         }
+
+    private static void runEjercicios() {
+        Ejercicio1 ejercicio1 = new Ejercicio1();
+        Ejercicio2 ejercicio2 = new Ejercicio2();
+        Ejercicio3 ejercicio3 = new Ejercicio3();
+        int[] numeros = new int[]{5,3,7,2,4,6,8};
+        System.out.println("====EJERCICIO 1====");
+        ejercicio1.insert(numeros);
+        System.out.println("====EJERCICIO 2 ====");
+         int[] numeros2 = new int[]{4,2,7,1,3,6,9};
+         ejercicio1.insert(numeros);
+         System.out.println();
+        ejercicio2.invertTree(numeros2);
+        System.out.println("====EJERCICIO 3 ====");
+
+        ejercicio3.insert(numeros2);
+    }
 
     private static void runBinaryTree() {
        // BinaryTree<String> arbolStrings = new BinaryTree<>();
         BinaryTree<Persona> arbolPersona = new BinaryTree<>();
         arbolPersona.add(new Persona("Pablo", 30));
-arbolPersona.add(new Persona("Maria", 28));
         arbolPersona.add(new Persona("Ana", 25));
-        
+        arbolPersona.add(new Persona("Maria", 28));
         arbolPersona.add(new Persona("Luis", 35));
         
        // arbolPersona.add(new Persona("Pablo", 30));
