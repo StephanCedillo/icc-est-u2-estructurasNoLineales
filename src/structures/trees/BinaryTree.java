@@ -18,6 +18,7 @@ public class BinaryTree<T extends Comparable<T>> {
     public void setRoot(Node<T> root) {
         this.root = root;
     }
+
     public int getPeso() {
         return peso;
     }
@@ -25,7 +26,6 @@ public class BinaryTree<T extends Comparable<T>> {
     public void setPeso(int peso) {
         this.peso = peso;
     }
-    
 
     public void add(T value) {
         Node<T> node = new Node<T>(value);
@@ -34,22 +34,29 @@ public class BinaryTree<T extends Comparable<T>> {
 
     public Node<T> addRecursivo(Node<T> nodeActual, Node<T> nodeInsertar) {
         if (nodeActual == null) {
-            peso +=1;
+            peso += 1;
             return nodeInsertar;
         }
-        if (nodeActual.getValue().compareTo(nodeInsertar.getValue())<0) {
+        if (nodeActual.getValue().compareTo(nodeInsertar.getValue()) < 0) {
             nodeActual.setRight(addRecursivo(nodeActual.getRight(), nodeInsertar));
         } else {
             nodeActual.setLeft(addRecursivo(nodeActual.getLeft(), nodeInsertar));
         }
 
-       
         return nodeActual;
 
     }
 
     public void preOrden() {
         preOrderRecursivo(root);
+    }
+
+    public void posOrder() {
+        posOrderRecursivo(root);
+    }
+
+    public void inOrder() {
+        inOrderRecursivo(root);
     }
 
     private void preOrderRecursivo(Node<T> actual) {
@@ -61,11 +68,6 @@ public class BinaryTree<T extends Comparable<T>> {
         preOrderRecursivo(actual.getRight());
     }
 
-    public void posOrder() {
-
-        posOrderRecursivo(root);
-    }
-
     private void posOrderRecursivo(Node<T> actual) {
         if (actual == null) {
             return;
@@ -75,13 +77,7 @@ public class BinaryTree<T extends Comparable<T>> {
         System.out.println(actual);
     }
 
-    public void inOrder() {
-
-        inOrderRecursivo(root);
-    }
-
     private void inOrderRecursivo(Node<T> actual) {
-
         if (actual == null) {
             return;
         }
@@ -94,7 +90,8 @@ public class BinaryTree<T extends Comparable<T>> {
     public int getHeight() {
         return getHeightRecursivo(root);
     }
-    public int getWeight(){
+
+    public int getWeight() {
         return getPeso();
     }
 
@@ -107,10 +104,9 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     // private int getWeightRecursivo2(Node<T> actual) {
-    //     return actual != null ? getWeightRecursivo2(actual.getLeft()) +
-    //             getWeightRecursivo2(actual.getRight())+1
-    //             : null;
+    // return actual != null ? getWeightRecursivo2(actual.getLeft()) +
+    // getWeightRecursivo2(actual.getRight())+1
+    // : null;
     // }
 
-   
 }

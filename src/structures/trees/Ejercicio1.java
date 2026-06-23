@@ -2,24 +2,15 @@ package structures.trees;
 
 import java.util.Stack;
 
-import models.Persona;
 import structures.node.Node;
 
 public class Ejercicio1 {
-    private  Stack<Node> pila  = new Stack<>();
-    public void insert(int[] numeros){
-
-        //CREAR EL ARBOL DE ENTEROS
-
-        // INSERTAR CADA NUMERO
-        // IMPRIMIR EL ARBOL
+    private Stack<Node<Integer>> pila = new Stack<>();
+    public void insert(int[] numeros) {
         BinaryTree<Integer> arbolBinario = new BinaryTree<>();
-        
         for (int i = 0; i < numeros.length; i++) {
             arbolBinario.add(numeros[i]);
         }
-
-        
         inOrder(arbolBinario);
         int alturaTotal = getHeight(arbolBinario.getRoot());
         while (!pila.isEmpty()) {
@@ -28,34 +19,29 @@ public class Ejercicio1 {
             for (int i = 0; i < espacios; i++) {
                 System.out.print("\t");
             }
-            System.out.println(nodoImprimir);      
+            System.out.println(nodoImprimir);
         }
     }
-
-     public void  inOrder(BinaryTree<Integer> arbolBinario) {
-         inOrderRecursivo(arbolBinario.getRoot());
+    public void inOrder(BinaryTree<Integer> arbolBinario) {
+        inOrderRecursivo(arbolBinario.getRoot());
     }
-    public void inOrderRecursivo(Node<Integer> actual){
-          if (actual == null) {
+    public void inOrderRecursivo(Node<Integer> actual) {
+        if (actual == null) {
             return;
         }
-        
-        
-        inOrderRecursivo(actual.getLeft()); 
+        inOrderRecursivo(actual.getLeft());
         pila.add(actual);
         inOrderRecursivo(actual.getRight());
     }
     public int getHeight(Node<Integer> actual) {
-         return getHeightRecursivo((actual));
+        return getHeightRecursivo((actual));
     }
-
-
-
     private int getHeightRecursivo(Node<Integer> actual) {
         if (actual == null) {
             return 0;
         }
-        int masAlto = Math.max(getHeightRecursivo(actual.getLeft()), getHeightRecursivo(actual.getRight()));
+        int masAlto = Math.max(getHeightRecursivo(actual.getLeft()), 
+        getHeightRecursivo(actual.getRight()));
         return masAlto + 1;
     }
 }
