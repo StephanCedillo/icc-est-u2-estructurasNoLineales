@@ -8,7 +8,7 @@
 - **Estudiante:** Stephan Axel Cedillo Mendoza
 - **Institución:** Universidad Politécnica Salesiana
 - **Curso:** Estructura de Datos - Grupo 1
-- **Fecha de Emisión:** 23/06/2026
+- **Fecha :** 23/06/2026
 
 ---
 
