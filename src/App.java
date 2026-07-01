@@ -1,5 +1,12 @@
-import java.util.function.IntBinaryOperator;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
+
+import collections.*;
+import collections.maps.Maps;
+import collections.set.Sets;
+import models.Contacto;
 import models.Persona;
 import structures.node.Node;
 
@@ -7,10 +14,80 @@ import structures.trees.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        //runIntTree();
+        // runIntTree();
         System.out.println();
-        //runBinaryTree();
-        runEjercicios();
+        // runBinaryTree();
+        // runEjercicios();
+        // runSets();
+        runMaps();
+    }
+
+    private static void runMaps() {
+       Maps maps = new Maps();
+       System.out.println(maps.construirHashMap());
+       System.out.println("==========");
+       maps.construirTreeMap();
+       
+       List<Contacto> lista = new ArrayList<>();
+
+       lista.add (new Contacto("Juan", "Perez", "123456789"));
+       lista.add (new Contacto("Ana", "Gomez", "987654321"));
+       lista.add (new Contacto("Pedro", "Lopez", "456789123"));
+       lista.add (new Contacto("Maria", "Rodriguez", "789123456"));
+       lista.add (new Contacto("Juan", "Perez", "123456789")); // Duplicado, no se agregará
+       lista.add (new Contacto("Juan", "Lopez", "123456789"));
+
+      System.out.println( maps.ordenarUnicos(lista));
+       
+    }
+
+    private static void runSets() {
+        Sets sets = new Sets();
+
+        // Implimentacion
+
+        System.out.println("=====HASH CODE======");
+        Set<String> hashset = sets.construirHashSet();
+
+        System.out.println(hashset);
+
+        System.out.println("Size = " + hashset.size());
+        System.out.println("Contiene la " + "F" + " = " + (hashset.contains("F") ? "Si" : "No"));
+        System.out.println("=====LINKEDHASH CODE======");
+
+         Set<String> linkedHashSet = sets.construirLinkedHashSet();
+
+        System.out.println(linkedHashSet);
+
+        System.out.println("Size = " + linkedHashSet.size());
+        System.out.println("Contiene la " + "F" + " = " + (linkedHashSet.contains("F") ? "Si" : "No"));
+
+        System.out.println("=====TREESET CODE=====");
+
+         Set<String> treeSet = sets.construirTreeSet();
+
+        System.out.println(treeSet);
+
+        System.out.println("Size = " + treeSet.size());
+        System.out.println("Contiene la " + "F" + " = " + (treeSet.contains("F") ? "Si" : "No"));
+
+        System.out.println("=====HASHCONTACTO CODE=====");
+
+        Set<Contacto> contactoSet = sets.contactoSet();
+
+        System.out.println(contactoSet);
+
+        System.out.println("Size = " + contactoSet.size());
+        System.out.println("Contiene la " + (new Contacto("Maria", "Rodriguez", "789123456")) + " = " + (contactoSet.contains(new Contacto("Maria", "Rodriguez", "789123456")) ? "Si" : "No"));
+
+         System.out.println("=====TREECONTACTOSET CODE=====");
+
+        Set<Contacto> treeContactoSet = sets.construirTreeSetContacto();
+
+        System.out.println(treeContactoSet);
+
+        System.out.println("Size = " + treeContactoSet.size());
+        //System.out.println("Contiene la " + "F" + " = " + (treeContactoSet.contains("F") ? "Si" : "No"));
     }
 
     private static void runEjercicios() {
@@ -46,7 +123,7 @@ public class App {
             arbolBinario2.add(numeros3[i]);
         }
         System.out.println("====EJERCICIO 4 ====");
-        System.out.println("Profundidad Maxima : "+ejercicio4.maxDepth(arbolBinario2.getRoot()));
+        System.out.println("Profundidad Maxima : " + ejercicio4.maxDepth(arbolBinario2.getRoot()));
 
     }
 
@@ -84,4 +161,5 @@ public class App {
 
     }
 
+    
 }

@@ -21,6 +21,7 @@ Este documento presenta el desarrollo de varios algoritmos aplicados sobre Árbo
 ## Ejercicio 01: Insertar en BST
 
 ### Especificación Algorítmica
+
 El algoritmo recibe una secuencia desordenada de valores enteros en un arreglo unidimensional. Luego se recorre ese arreglo de forma secuencial y cada valor se inserta en un Árbol Binario de Búsqueda, donde se cumple la regla de que los valores menores van al subárbol izquierdo y los mayores o iguales van al subárbol derecho, formando así una estructura ordenada de manera ascendente.
 
 Después, se implementa un recorrido en orden (inOrder) modificado, donde los nodos no se imprimen directamente, sino que se guardan en una estructura de tipo pila (java.util.Stack). Al vaciar la pila siguiendo el orden LIFO, los nodos se van mostrando en consola con una cantidad de espacios o tabulaciones que depende de la altura de cada nodo. Esto permite ubicar cada elemento en su nivel dentro del árbol y genera una representación visual del BST girada 90 grados, facilitando su comprensión desde la salida en texto.

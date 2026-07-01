@@ -10,7 +10,7 @@
 
 ## Estructura del Proyecto
 
-El proyecto está organizado en tres paquetes principales:
+El proyecto está organizado en tres secciones principales:
 
 * **structures.node**
 
